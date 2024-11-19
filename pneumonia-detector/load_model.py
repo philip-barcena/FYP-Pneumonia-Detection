@@ -1,9 +1,9 @@
 import numpy as np
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model # type: ignore
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 # Load the model
-model = load_model('pneumonia_detector_model.h5')
+model = load_model('pneumonia_detector_model.keras')
 
 print("Model input shape:", model.input_shape)
 
