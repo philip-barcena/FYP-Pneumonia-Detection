@@ -43,8 +43,12 @@ test_generator = val_test_datagen.flow_from_directory(
     class_mode='binary'
 )
 
+
+
 sample_batch = next(train_generator)
 sample_images, sample_labels = sample_batch
+
+
 
 print("Number of training samples:", train_generator.samples)
 print("Number of validation samples:", val_generator.samples)
@@ -60,9 +64,9 @@ for i in range(9):  # Displaying 9 images
 
 plt.show()
 
-# Create the model
 model = models.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_SIZE, IMG_SIZE, 3)),
+    layers.Input(shape=(IMG_SIZE, IMG_SIZE, 3)),  # Input layer with shape
+    layers.Conv2D(32, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     
     layers.Conv2D(64, (3, 3), activation='relu'),
